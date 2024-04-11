@@ -34,7 +34,6 @@ targets_EPICV2 <- targets %>% filter(CHIP == "EPICV2")
 targets_FULL <- rbind(targets_EPIC, targets_450K, targets_EPICV2)
 
 # Perform quality control
-rgSet <- rgCont
 detP <- detectionP(rgSet)
 keep <- colMeans(detP) < 0.05
 rgSet <- rgSet[, keep]
