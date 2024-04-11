@@ -83,6 +83,8 @@ betas <- openSesame("d:/idat/208181020018_R08C01")
 # Transform EPICV2 into a 450K dataframe
 betas <- mLiftOver(x = betas, target_platform = "HM450")
 betas <- as.data.frame(betas)
+#need to be fixed somehow :
+colnames(betas) <-'208181020018_R08C01'
 
 # Ensure both datasets have the same CpGs
 betas <- as.data.frame(betas) %>%
