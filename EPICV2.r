@@ -100,7 +100,7 @@ betas <- merge( BValsC ,betas, by=0, all=TRUE)
 # -----------------------------------------
 
 # Select the 25K most variable CpGs
-meth <- selectVariables(data = na.omit(betas), method = "SD", no.variables = 25000, threads = 16)
+meth <- selectVariables(data = na.omit(betas[-1), method = "SD", no.variables = 25000, threads = 16)
 
 # t-SNE wrapper
 tsne <- modelTsne(meth, perplexity = 5, group = targets_FULL$Sample_GROUP, dim = 2)
