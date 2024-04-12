@@ -91,8 +91,9 @@ betas <- as.data.frame(betas) %>%
   filter(row.names(betas) %in% rownames(BValsC))
 
 # Combine both dataframes: the one with EPIC and 450K, and the EPICV2 transformed into 450K
-betas <- cbind(BValsC, betas)
-
+#betas <- cbind(BValsC, betas)
+#fixing bug : seems to work with merge, I think that mLiftOver mess with the order of rownames somehow 
+betas <- merge( BValsC ,betas, by=0, all=TRUE)
 
 # -----------------------------------------
 # Perfome T-sne
